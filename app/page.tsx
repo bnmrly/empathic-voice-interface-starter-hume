@@ -12,8 +12,6 @@ export default async function Page() {
     throw new Error();
   }
 
-  console.log("test");
-
   return (
     <div className={"grow flex flex-col"}>
       <Chat accessToken={accessToken} />

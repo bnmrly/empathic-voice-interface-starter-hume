@@ -10,7 +10,9 @@ export default function StartCall() {
     <AnimatePresence>
       {status.value !== "connected" ? (
         <motion.div
-          className={"fixed inset-0 p-4 flex items-center justify-center bg-background"}
+          className={
+            "fixed inset-0 p-4 flex items-center justify-center bg-background"
+          }
           initial="initial"
           animate="enter"
           exit="exit"
@@ -44,7 +46,7 @@ export default function StartCall() {
                     stroke={"currentColor"}
                   />
                 </span>
-                <span>Start Call</span>
+                <span>Hello world, start the Call</span>
               </Button>
             </motion.div>
           </AnimatePresence>
