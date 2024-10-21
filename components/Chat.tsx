@@ -15,17 +15,15 @@ export default function ClientComponent({
   const ref = useRef<ComponentRef<typeof Messages> | null>(null);
 
   // optional: use configId from environment variable
-  const configId = process.env['NEXT_PUBLIC_HUME_CONFIG_ID'];
-  
+  const configId = process.env["NEXT_PUBLIC_HUME_CONFIG_ID"];
   return (
-    <div
-      className={
-        "relative grow flex flex-col mx-auto w-full overflow-hidden h-[0px]"
-      }
-    >
+    // <div
+    //   className={
+    //     "relative grow flex flex-col mx-auto w-full overflow-hidden h-[0px] border border-red-500 border-solid"
+    //   }
+    <div className={"chat-container"}>
       <VoiceProvider
         auth={{ type: "accessToken", value: accessToken }}
-        configId={configId}
         onMessage={() => {
           if (timeout.current) {
             window.clearTimeout(timeout.current);
@@ -42,10 +40,11 @@ export default function ClientComponent({
             }
           }, 200);
         }}
+        clearMessagesOnDisconnect={false}
       >
-        <Messages ref={ref} />
-        <Controls />
         <StartCall />
+        <Controls />
+        <Messages ref={ref} />
       </VoiceProvider>
     </div>
   );

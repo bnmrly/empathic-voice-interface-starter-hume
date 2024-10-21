@@ -11,13 +11,18 @@ export default function Controls() {
   const { disconnect, status, isMuted, unmute, mute, micFft } = useVoice();
 
   return (
+    // <div
+    //   className={
+    //     cn(
+    //       "fixed bottom-0 left-0 w-full p-4 flex items-center justify-center",
+    //       "bg-gradient-to-t from-card via-card/90 to-card/0",
+    //     )
+    //   }
     <div
-      className={
-        cn(
-          "fixed bottom-0 left-0 w-full p-4 flex items-center justify-center",
-          "bg-gradient-to-t from-card via-card/90 to-card/0",
-        )
-      }
+      className={cn(
+        "controls-wrapper p-4 flex items-center justify-center",
+        "bg-gradient-to-t from-card via-card/90 to-card/0"
+      )}
     >
       <AnimatePresence>
         {status.value === "connected" ? (
